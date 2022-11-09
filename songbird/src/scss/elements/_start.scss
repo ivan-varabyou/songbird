@@ -25,6 +25,7 @@ $mobile: 991.98px;
   }
 }
 
+
 .header__logo {
   @media (max-width: $mobile) {
     flex-direction: column;
@@ -45,13 +46,6 @@ $mobile: 991.98px;
   justify-content: space-between;
   @media (max-width: $mobile) {
     justify-content: center;
-  }
-}
-
-.info__link,
-.nav__li {
-  @media (max-width: $mobile) {
-    width: 100%;
   }
 }
 
@@ -78,10 +72,22 @@ $mobile: 991.98px;
   width: 100px;
 }
 
+.header__block {
+  gap: 15px;
+  cursor: pointer;
+}
 
 @media (max-width: $mobile) {
   .container .header {
     margin-top: 20px;
+  }
+  .header__block {
+    flex-direction: column;
+  }
+  .header__block .header__language,
+  .header__block .nav__li
+  {
+    padding-right: 20px;
   }
 }
 

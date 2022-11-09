@@ -584,7 +584,7 @@ categoryData.eng =
   },
   {
     "category": "5",
-    "category_name": "Predator birds",
+
     "category_image": "/assets/img/scene/predator.jpg"
   }
 ]
