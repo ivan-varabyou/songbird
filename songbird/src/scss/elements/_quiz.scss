@@ -1,0 +1,195 @@
+.body {
+  position: relative;
+}
+
+.player__title--big,
+.header-qiuz__logo-text{
+  text-shadow: 1px 1px 2px #000000;
+}
+
+.main-quiz {
+  margin-bottom: 24px;
+}
+
+.container-qiuz {
+  position: relative;
+}
+
+.cover-quiz {
+  background-position: center;
+  background-size: cover;
+}
+
+
+
+.cover-quiz__container {
+  padding: 180px 0;
+  box-shadow:
+  0 -220px 150px 0 #fff inset,
+  0 -50px 50px -200px #fff inset,
+  0 -50px 50px -200px #fff inset;
+}
+
+.header-qiuz__logo-text {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.header-qiuz__score {
+  font-size: 18px;
+}
+
+.header-qiuz {
+  position: absolute;
+  left: 0;
+  right: 00;
+  top: 30px;
+}
+
+.header-qiuz__logo {
+  height: 40px;
+  padding: 8px;
+}
+
+.quiz-catalog {
+  border-radius: 20px;
+  margin-top: -90px;
+  margin-bottom: 90px;
+  background: #fff;
+}
+
+
+.card {
+  cursor: pointer;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-title--full {
+  opacity: 1;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 101%;
+  color: #fff;
+  background: rgb(0 0 0 / 55%);
+  transition: all 0.3s ease-in;
+}
+
+.card:hover .card-title--full {
+  opacity: 0;
+}
+
+.card-description {
+  overflow: scroll;
+  height: 167px;
+}
+
+.card-image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card--error {
+  border-color: #f90000;
+  background: rgba(249, 0, 0, 0.0509803922);
+}
+
+.card--success {
+  border-color: #008b2c;
+  background: rgb(102 255 121 / 5%);
+}
+
+.card-image.card-image--min {
+  width: 74px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card-image__img {
+  width: 100%;
+}
+
+.player__info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-top: 4px;
+}
+
+
+.player__title--big {
+  color: #ffffff;
+  font-size: 60px;
+}
+
+.player__prorgess {
+  background-color: #ffffff;
+  border-radius: 5px;
+  width: 100%;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.player__progress-line {
+  background-color: #0d6efd;
+  border-radius: 5px;
+  height: 6px;
+  margin: 3px;
+}
+
+.player__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.player__button {
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player__button svg {
+  fill: #000;
+}
+
+.player__button:hover {
+  border: 2px solid #0d6efd;
+}
+
+.player__button:hover svg {
+  fill: #0d6efd;
+}
+
+.player__left {
+  flex: 0 0 50px;
+}
+
+.player__right {
+  flex: 1 1 auto;
+}
+
+.cover-active {
+  animation: play 2s infinite;
+}
+
+@keyframes play {
+  0% {  background-size: cover 100%; }
+  50% { background-size: cover 105%; }
+  100% { background-size: cover 100%; }
+}
