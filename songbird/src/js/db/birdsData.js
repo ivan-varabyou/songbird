@@ -1,6 +1,6 @@
 const birdsData = {};
 const menuData = {};
-const massageData = {};
+const messageData = {};
 const categoryData = {};
 
 birdsData.rus =
@@ -592,7 +592,7 @@ categoryData.eng =
 categoryData.rus =
 [
   {
-    "category": "0",
+    "predator_category": "0",
     "category_name": "Разминка",
     "category_image": "/assets/img/scene/dafeult.jpg"
   },
@@ -626,26 +626,29 @@ categoryData.rus =
 menuData.eng =
 [
   {
-    "home": "Start",
-    "game": "Guiz",
-    "result": "Result"
+    "index": "Start",
+    "quiz": "Quiz",
+    "catalog": "Catalog"
   }
 ]
 menuData.rus =
 [
   {
-    "home": "Старт",
-    "game": "Викторина",
-    "result": "Результат"
+    "index": "Старт",
+    "quiz": "Викторина",
+    "catalog": "Каталог"
   }
 ]
 
-massageData.eng =
+messageData.eng =
 [
   {
     "start": "Welcome!",
     "start-text": "To start, click the 'Start quiz' button",
-    "score": "Your score:",
+    "score": "Score",
+    "next-level": "Next level",
+    "quiz-title-text": "Listen to the player. Choose a bird from the list",
+    "score-win": "Your score:",
     "start-button": "Start quiz",
     "reply": "Try again, you will definitely get the maximum score",
     "win": "Congratulations, you completed the quiz with the maximum result!",
@@ -654,12 +657,15 @@ massageData.eng =
     "pause": "Pause"
   }
 ]
-massageData.rus =
+messageData.rus =
 [
   {
     "start": "Добро пожаловать!",
     "start-text": "Для старта нажмите кнопку 'Начать викторину'",
-    "score": "Ваш результат:",
+    "score": "Результат",
+    "next-level": "Следующий уровень",
+    "quiz-title-text": "Послушайте плеер. Выберите птицу из списка",
+    "score-win": "Ваш результат:",
     "start-button": "Начать викторину",
     "reply": "Попробуйте еще раз, у Вас обязательно получится набрать максимальный балл",
     "win": "Поздравляем вы прошли викторину с максимальным результатом!",
@@ -669,5 +675,4 @@ massageData.rus =
   }
 ]
 
-
-export {birdsData, menuData, massageData, categoryData} ;
+export { birdsData, menuData, messageData, categoryData } ;
