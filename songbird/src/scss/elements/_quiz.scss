@@ -14,7 +14,7 @@
 }
 
 .player__title--big,
-.header-qiuz__logo-text{
+.header-qiuz__logo-text {
   text-shadow: 1px 1px 2px #000000;
 }
 
@@ -31,14 +31,10 @@
   background-size: cover;
 }
 
-
-
 .cover-quiz__container {
   padding: 180px 0;
-  box-shadow:
-  0 -220px 150px 0 #fff inset,
-  0 -50px 50px -200px #fff inset,
-  0 -50px 50px -200px #fff inset;
+  box-shadow: 0 -220px 150px 0 #fff inset, 0 -50px 50px -200px #fff inset,
+    0 -50px 50px -200px #fff inset;
 }
 
 .header-qiuz__logo-text {
@@ -75,16 +71,10 @@
 }
 
 .questions,
-.answer
-{
+.answer {
   flex: 1 1 50%;
   padding: 5px;
   border-radius: 5px;
-}
-
-.answer {
-  border: 2px solid #efefef;
-  padding: 15px;
 }
 
 .questions__list {
@@ -106,8 +96,8 @@
   height: 10px;
   margin-right: 15px;
   border-radius: 50%;
-  -webkit-transition: .1s;
-  transition: .1s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
   background-color: #000000;
 }
 
@@ -121,7 +111,6 @@
     background-color: #f90000;
   }
 }
-
 
 .questions__item.success {
   color: #008b2c;
@@ -186,13 +175,16 @@
   width: 100%;
 }
 
+.player {
+  user-select: none;
+}
+
 .player__info {
   display: flex;
   justify-content: space-between;
   font-size: 18px;
   margin-top: 4px;
 }
-
 
 .player__title--big {
   color: #ffffff;
@@ -216,12 +208,18 @@
   border-radius: 5px;
   height: 6px;
   margin: 3px;
+  transition: all 0.1s ease-in;
 }
 
 .player__wrapper {
   display: flex;
   align-items: center;
   gap: 15px;
+  width: 50%;
+  margin: 0 auto;
+  @media (max-width: $mobile) {
+    width: unset;
+  }
 }
 
 .player__button {
@@ -247,9 +245,17 @@
   fill: #0d6efd;
 }
 
+.player__button--pause .play {
+  display: none;
+}
+
+.player__button--play .pause {
+  display: none;
+}
+
 .player__left {
   flex: 0 0 50px;
-  margin-top: 49px
+  margin-top: 49px;
 }
 
 .player__right {
@@ -261,9 +267,15 @@
 }
 
 @keyframes play {
-  0% {  background-size: cover 100%; }
-  50% { background-size: cover 105%; }
-  100% { background-size: cover 100%; }
+  0% {
+    background-size: cover 100%;
+  }
+  50% {
+    background-size: cover 105%;
+  }
+  100% {
+    background-size: cover 100%;
+  }
 }
 
 .quiz-category {
@@ -276,7 +288,6 @@
     }
   }
 }
-
 
 @media (max-width: $mobile) {
   .nav__li {

@@ -1,6 +1,6 @@
 {
   "author": "Varabyou Ivan <onebelbiz@gmail.com>",
-  "name": "RSS Songbird",
+  "name": "songbird",
   "version": "1.0.0",
   "description": "RSS Songbird",
   "homepage": "https://github.com/rolling-scopes-school/tasks/blob/master/tasks/songbird/songbird-2022q3.md",
@@ -34,6 +34,7 @@
     "mini-css-extract-plugin": "^2.4.4",
     "postcss": "^8.3.11",
     "postcss-loader": "^7.0.0",
+    "prettier": "^2.7.1",
     "pug": "^2.0.4",
     "pug-loader": "^2.4.0",
     "sass": "^1.50.1",
