@@ -29,14 +29,18 @@ class Player {
   }
 
   updateButton() {
-    if (this.playerBtn.classList.contains('player__button--pause')) {
-      this.playerBtn.classList.add('player__button--play');
-      this.playerBtn.classList.remove('player__button--pause');
-      this.pause();
-    } else {
-      this.playerBtn.classList.add('player__button--pause');
-      this.playerBtn.classList.remove('player__button--play');
-      this.play();
+    try {
+      if (this.playerBtn.classList.contains('player__button--pause')) {
+        this.playerBtn.classList.add('player__button--play');
+        this.playerBtn.classList.remove('player__button--pause');
+        this.pause();
+      } else {
+        this.playerBtn.classList.add('player__button--pause');
+        this.playerBtn.classList.remove('player__button--play');
+        this.play();
+      }
+    } catch (error) {
+      console.error(error.message);
     }
   }
 
@@ -117,8 +121,10 @@ class Quiz {
     const randSong = data[randNum];
     this.songId = randSong.id;
 
-    document.querySelector('.js-player-audio').src = randSong.sound;
-    this.palyer = new Player(document.querySelector('.js-player'));
+    document.querySelector(
+      '.js-player-block',
+    ).innerHTML = `<audio class="js-player-audio" src="${randSong.sound}"></audio>`;
+    // this.palyer = new Player(document.querySelector('.js-player'));
   }
 
   updateCategory() {
@@ -151,4 +157,6 @@ function timeFormat(min, sec) {
   return `${min}:${sec}`;
 }
 
-const quiz = new Quiz();
+if (location.pathname.includes('quiz.html')) {
+  const quiz = new Quiz();
+}

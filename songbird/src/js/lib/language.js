@@ -1,9 +1,6 @@
 import {
-  birdsData,
-  menuData,
-  messageData,
-  categoryData,
-} from '../db/birdsData.js';
+  birdsData, menuData, messageData, categoryData,
+} from './birdsData.js';
 
 import { setStorage, getStorage } from './storage.js';
 
@@ -42,12 +39,12 @@ class Language {
     setStorage('lang', this.lang);
     this.languageButton.src = `./assets/img/lang/${this.lang}.png`;
 
-    if (location.pathname === '/' || location.pathname === '/index.html') {
-      updateLangMenu(this.lang);
-      updateLangStartPage(this.lang);
-    } else if (location.pathname === '/quiz.html') {
+    if (location.pathname.includes('quiz.html')) {
       updateLangMenu(this.lang);
       updateLangQuiz(this.lang);
+    } else {
+      updateLangMenu(this.lang);
+      updateLangStartPage(this.lang);
     }
   }
 }
