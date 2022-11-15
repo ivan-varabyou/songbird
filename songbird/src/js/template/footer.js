@@ -2,7 +2,7 @@ const footer = `
 <footer class="footer container">
 <div class="footer__rs">
   © 2022
-  <a href="https://getbootstrap.com/" class="text-black">
+  <a href="https://rs.school/js/" class="text-black">
     <img src="https://rs.school/images/rs_school_js.svg" alt="RS SCHOOL" class="footer__rs-logo">
   </a>
   <a href="https://github.com/ivan-varabyou/" class="footer__github btn btn-dark">@ivan-varabyou</a>
