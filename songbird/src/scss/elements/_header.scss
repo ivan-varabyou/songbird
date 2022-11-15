@@ -1,0 +1,148 @@
+.header {
+  margin-top: 12px;
+}
+
+.header__body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__logo,
+.header-container {
+  color: #ffffff;
+  @media (max-width: $mobile) {
+    color: #301115;
+  }
+}
+
+.header__logo-block {
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.header__logo {
+  max-height: 34px;
+}
+
+.header__language {
+  cursor: pointer;
+}
+
+.header__logo-block {
+  text-shadow: 1px 1px 2px #000000;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.header__logo-img {
+  height: 64px;
+  padding: 8px;
+  @media (max-width: $mobile) {
+    height: 100px;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+  @media (max-width: $mobile) {
+    gap: 4px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    display: none;
+  }
+}
+
+.header.active .nav {
+  position: absolute;
+  display: flex;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  z-index: 9;
+  padding: 25px;
+  gap: 12px;
+  &::before {
+    content: "x";
+    top: 0;
+    position: absolute;
+    font-size: 64px;
+    color: #301115;
+  }
+  .nav__li {
+    .btn {
+      width: 100%;
+      font-size: 24px;
+    }
+    width: 100%;
+    font-size: 22px;
+    text-align: center;
+  }
+}
+
+.nav__link {
+  @media (max-width: $mobile) {
+    width: 100%;
+  }
+}
+
+.nav__munu {
+  display: none;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: $mobile) {
+    display: flex;
+  }
+
+  .nav__munu-img {
+    height: 36px;
+    padding: 4px;
+  }
+}
+
+.header__block {
+  gap: 15px;
+  cursor: pointer;
+
+  @media (max-width: $mobile) {
+    flex-direction: column;
+  }
+
+  .header__language {
+    @media (max-width: $mobile) {
+      padding-right: 20px;
+    }
+  }
+}
+
+.quiz-page,
+.catalog-page {
+  .header {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  .header.active {
+    position: unset;
+  }
+}
+
+.catalog-page,
+.result-page,
+.start-page,
+.home-page {
+  .nav__score {
+    display: none;
+  }
+}
