@@ -12,25 +12,31 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const environment = require('./configuration/environment');
 
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'development';
 
-
-const templateFiles = fs.readdirSync(environment.paths.source)
-  .filter((file) => ['.html', '.ejs'].includes(path.extname(file).toLowerCase())).map((filename) => ({
+const templateFiles = fs
+  .readdirSync(environment.paths.source)
+  .filter((file) => ['.html', '.ejs'].includes(path.extname(file).toLowerCase()))
+  .map((filename) => ({
     input: filename,
     output: filename.replace(/\.ejs$/, '.html'),
   }));
 
-const htmlPluginEntries = templateFiles.map((template) => new HTMLWebpackPlugin({
-  inject: true,
-  hash: false,
-  filename: template.output,
-  template: path.resolve(environment.paths.source, template.input),
-  favicon: path.resolve(environment.paths.source, 'favicon', 'favicon.ico'),
-}));
+const htmlPluginEntries = templateFiles.map(
+  (template) => new HTMLWebpackPlugin({
+    inject: true,
+    hash: false,
+    filename: template.output,
+    template: path.resolve(environment.paths.source, template.input),
+    favicon: path.resolve(
+      environment.paths.source,
+      'assets',
+      'favicon/favicon.ico',
+    ),
+  }),
+);
 
-
-const filename = ext => isDev ? `[name].${ext}` : `[name].[hash].${ext}`
+const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[hash].${ext}`);
 
 module.exports = {
   entry: {
@@ -44,7 +50,12 @@ module.exports = {
     rules: [
       {
         test: /\.((c|sa|sc)ss)$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.js$/,
@@ -134,9 +145,6 @@ module.exports = {
             ignore: ['*.DS_Store', 'Thumbs.db'],
           },
         },
-
-
-
       ],
     }),
   ].concat(htmlPluginEntries),
