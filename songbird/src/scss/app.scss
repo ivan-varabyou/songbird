@@ -1,8 +1,15 @@
-
 /* Bootstrap styles */
-@import '~bootstrap/scss/bootstrap';
 
+@import "~bootstrap/scss/bootstrap";
 
 /* Elements */
-@import 'elements/start';
-@import 'elements/quiz';
+@import "elements/settings";
+@import "elements/loader";
+@import "elements/menu";
+@import "elements/player";
+@import "elements/header";
+@import "elements/start";
+@import "elements/catalog";
+@import "elements/quiz";
+@import "elements/footer";
+@import "elements/animations";
