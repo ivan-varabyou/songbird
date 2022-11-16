@@ -52,9 +52,10 @@ class Quiz {
     this.nextLevelButton.addEventListener('click', () => this.nextLevel());
     this.questionsList.addEventListener('click', (e) => {
       const songId = e.target.dataset.id;
+      const statusQuestion = e.target.dataset.status;
       this.titleMessage.style.display = 'none';
       if (songId === this.songId) {
-        if (this.levelWin === 0) {
+        if (this.levelWin === 0 && statusQuestion === 'active') {
           this.headerTitle = document.querySelector('.js-header-title');
           this.headerTitle.innerText = this.song.name;
           this.updateButton();
@@ -66,7 +67,7 @@ class Quiz {
         this.palyer.stop();
         replay(soundSuccess);
       } else if (songId > 0) {
-        if (this.levelWin === 0) {
+        if (this.levelWin === 0 && statusQuestion === 'active') {
           e.target.classList.add('error');
           if (this.levelScore !== 0) {
             --this.levelScore;
@@ -76,6 +77,9 @@ class Quiz {
       }
 
       this.updateAnswer(e);
+
+      // add pasive status question
+      e.target.dataset.status = 'pasive';
 
       function replay(sound) {
         sound.pause();
@@ -164,6 +168,7 @@ class Quiz {
       this.questions[index].removeAttribute('disabled');
       this.questions[index].innerText = item.name;
       this.questions[index].dataset.id = item.id;
+      this.questions[index].dataset.status = 'active';
     });
     this.nextLevelButton.setAttribute('disabled', 'disabled');
     this.nextLevelButton.classList.remove('btn-primary');
