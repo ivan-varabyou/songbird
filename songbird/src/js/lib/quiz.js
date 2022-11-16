@@ -68,7 +68,7 @@ class Quiz {
       } else if (songId > 0) {
         if (this.levelWin === 0) {
           e.target.classList.add('error');
-          if (this.levelScore !== 1) {
+          if (this.levelScore !== 0) {
             --this.levelScore;
           }
         }
