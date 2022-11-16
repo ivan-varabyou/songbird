@@ -95,14 +95,19 @@
 }
 
 .card {
-  cursor: pointer;
   position: relative;
   overflow: hidden;
-}
+  &:hover {
+    .card__title--full {
+      opacity: 0;
+    }
+  }
 
-.card:hover {
-  &card__title--full {
-    opacity: 0;
+  &__header {
+    user-select: none;
+    img {
+      user-select: inherit;
+    }
   }
 }
 
@@ -130,7 +135,7 @@
   grid-area: image;
   display: flex;
   align-items: center;
-  &img {
+  img {
     width: 100%;
     object-fit: cover;
   }
