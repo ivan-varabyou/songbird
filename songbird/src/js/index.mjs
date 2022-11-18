@@ -14,9 +14,12 @@ import {
   buildCard,
 } from './lib/quiz.js';
 
+import { loaderHide, loaderView } from './lib/loader.js';
+
 (() => {
   let lang;
   let quiz;
+
   function menuStart() {
     const menu = document.querySelector('.js-menu');
     const nav = document.querySelector('.nav');
@@ -38,20 +41,12 @@ import {
     }
   }
 
-  function updatePage(data) {
-    document.body.className = `body ${data}-page`;
-    setStorage('page', data);
-    renderPage();
-  }
-
   function renderPage() {
     const { body } = document;
     const main = document.getElementById('main');
     const page = getStorage('page');
     if (page === 'home') {
-      body.insertAdjacentHTML('beforeend', footer);
-      body.insertAdjacentHTML('afterbegin', startPage);
-      body.insertAdjacentHTML('afterbegin', header);
+      renderPageHome(body);
       lang = new Language();
       menuStart();
     }
@@ -60,33 +55,22 @@ import {
 
     if (page === 'start' || page === 'result') {
       body.classList.add('cover-container');
-      main.outerHTML = startPage;
+      main.outerHTML = startPage(page);
       lang.updateLanguage();
     }
 
     if (page === 'quiz') {
       resetSrorege();
       main.outerHTML = quizPage;
-      quiz = new Quiz(1);
+      quiz = new Quiz();
       quiz.updateScoreInfo();
       lang.updateLanguage();
-
-      const nextLevelButton = document.querySelector('.js-next-level');
-      nextLevelButton.addEventListener('click', () => {
-        const level = getStorage('level');
-        if (level === 6) {
-          updatePage('result');
-        }
-      });
+      nextLevelButton();
     }
 
     if (page === 'catalog') {
       main.outerHTML = catalogPage;
-      updatePageCatalog();
-    }
-
-    if (page === 'quiz' || page === 'catalog') {
-      body.classList.remove('cover-container');
+      renderPageCatalog();
     }
 
     loaderHide();
@@ -97,16 +81,13 @@ import {
       buttonStart();
     }
 
-    function loaderView() {
-      setLoaderLogo('flex', '1');
+    function renderPageHome(body) {
+      body.insertAdjacentHTML('beforeend', footer);
+      body.insertAdjacentHTML('afterbegin', startPage('start'));
+      body.insertAdjacentHTML('afterbegin', header);
     }
 
-    function loaderHide() {
-      setTimeout(() => {
-        setLoaderLogo('none', '0');
-      }, 800);
-    }
-    function updatePageCatalog() {
+    function renderPageCatalog() {
       const catalog = document.querySelector('.js-catalog');
       const catalogPlayer = [];
       catalog.innerHTML = '';
@@ -117,6 +98,7 @@ import {
         );
       });
     }
+
     function buttonStart() {
       const btnStart = document.querySelector('.js-start-button');
       btnStart.addEventListener('click', (e) => {
@@ -124,11 +106,22 @@ import {
         updatePage(e.target.dataset.href);
       });
     }
-    function setLoaderLogo(display, opacity) {
-      const loaderLogo = document.querySelector('.loader');
-      loaderLogo.style.opacity = opacity;
-      loaderLogo.style.display = display;
+
+    function nextLevelButton() {
+      const nextLevelButton = document.querySelector('.js-next-level');
+      nextLevelButton.addEventListener('click', () => {
+        const level = getStorage('level');
+        if (level === 6) {
+          updatePage('result');
+        }
+      });
     }
+  }
+
+  function updatePage(data) {
+    document.body.className = `body ${data}-page`;
+    setStorage('page', data);
+    renderPage();
   }
 
   resetSrorege('home');

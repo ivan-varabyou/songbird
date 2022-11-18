@@ -9,9 +9,9 @@ import {
 import { Player } from './player.js';
 import { header } from '../template/header.js';
 import { footer } from '../template/footer.js';
-import { startPage } from '../template/body-start.js';
-import { quizPage, buildMainSound } from '../template/body-quiz.js';
-import { catalogPage, buildCard } from '../template/body-catalog.js';
+import { startPage } from '../template/start.js';
+import { quizPage, buildMainSound } from '../template/quiz.js';
+import { catalogPage, buildCard } from '../template/catalog.js';
 import { random, randListStart } from './random.js';
 
 class Quiz {

@@ -3,7 +3,7 @@ const header = `
   <div class="container">
     <div class="header__body">
       <span class="header__logo-block"
-        data-href="/">
+        data-href="start">
         <img class="header__logo" height="34px" src="./assets/logo.png" alt="" />
         Songbird
       </span>
