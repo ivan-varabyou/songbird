@@ -13,12 +13,10 @@
 }
 
 .cover-quiz__container {
-  height: 600px;
-  padding-top: 215px;
-  @media (max-width: $mobile) {
-    height: 340px;
-    padding-top: 65px;
-  }
+  height: 550px;
+  display: flex;
+  align-items: center;
+  padding-top: 164px;
   box-shadow: 0 -220px 150px 0 #fff inset, 0 -50px 50px -200px #fff inset,
     0 -50px 50px -200px #fff inset;
 }

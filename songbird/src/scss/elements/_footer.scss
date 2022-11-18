@@ -1,13 +1,23 @@
 .footer {
   margin-bottom: 24px;
+
+  &__rs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__rs-logo {
+    width: 100px;
+  }
 }
 
-.footer__rs {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer__rs-logo {
-  width: 100px;
+.result-page {
+  .footer__rs {
+    color: #ffffff;
+  }
+  .footer__github {
+    background-color: #ffffff;
+    color: #000000;
+  }
 }
