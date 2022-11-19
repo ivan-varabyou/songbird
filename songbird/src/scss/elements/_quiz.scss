@@ -6,6 +6,25 @@
   position: relative;
 }
 
+$width-question-svg: 50px;
+
+.quiz-page {
+  .player__title::before {
+    content: "";
+    background-image: url("../assets/img/system/question.svg");
+    position: absolute;
+    z-index: 2;
+    width: $width-question-svg;
+    height: $width-question-svg;
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: calc(50% - ($width-question-svg/2));
+    top: -50%;
+    animation: question 2s infinite;
+    transform: rotate(180deg);
+  }
+}
+
 .cover-quiz {
   background-position: center;
   background-size: cover;
@@ -18,24 +37,6 @@
     padding-top: 164px;
     box-shadow: 0 -220px 150px 0 #fff inset, 0 -50px 50px -200px #fff inset,
       0 -50px 50px -200px #fff inset;
-    position: relative;
-  }
-
-  $width-question-svg: 50px;
-
-  .player__title::before {
-    content: "";
-    background-image: url("../assets/img/system/question.svg");
-    position: absolute;
-    z-index: 2;
-    width: $width-question-svg;
-    height: $width-question-svg;
-    background-size: contain;
-    background-repeat: no-repeat;
-    left: calc(50% - ($width-question-svg/2));
-    top: 33%;
-    animation: question 2s infinite;
-    transform: rotate(180deg);
   }
 
   .player__title.win::before {

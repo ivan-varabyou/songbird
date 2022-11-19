@@ -91,9 +91,9 @@ import { loaderHide, loaderView } from './lib/loader.js';
       const catalog = document.querySelector('.js-catalog');
       const catalogPlayer = [];
       catalog.innerHTML = '';
-      birdsData[getStorage('lang')][0].forEach(async (card, index) => {
+      birdsData[getStorage('lang')][0].forEach((card, index) => {
         catalog.insertAdjacentHTML('beforeend', buildCard('card', card));
-        catalogPlayer[index] = await new Player(
+        catalogPlayer[index] = new Player(
           document.querySelector(`.js-player-${card.id}`),
         );
       });
