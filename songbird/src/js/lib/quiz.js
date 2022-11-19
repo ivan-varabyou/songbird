@@ -57,6 +57,7 @@ class Quiz {
       if (songId === this.songId) {
         if (this.levelWin === 0 && statusQuestion === 'active') {
           this.headerTitle = document.querySelector('.js-header-title');
+          this.headerTitle.classList.add('win');
           this.headerTitle.innerText = this.song.name;
           this.updateButton();
           e.target.classList.add('success');
@@ -109,11 +110,11 @@ class Quiz {
     this.prorgessLine.style.width = '0%';
   }
 
-  updateLevel() {
+  async updateLevel() {
     setStorage('level', this.level);
     if (this.level < 6) {
-      this.updateCategory();
-      this.updateInformation();
+      await this.updateCategory();
+      await this.updateInformation();
     }
   }
 
@@ -132,7 +133,7 @@ class Quiz {
 
     mainPlayer.innerHTML = await buildMainSound(this.song.sound);
 
-    this.palyer = new Player(mainPlayer, this.songId);
+    this.palyer = await new Player(mainPlayer, this.songId);
 
     this.updateQuestions(data[getStorage('lang')]);
     this.answer.innerHTML = '';
@@ -175,7 +176,7 @@ class Quiz {
     this.nextLevelButton.classList.add('btn-secondary');
   }
 
-  updateAnswer(e) {
+  async updateAnswer(e) {
     if (this.songData[getStorage('lang')].length > 0) {
       const answer = {};
       this.songData.eng.forEach((el) => {
@@ -198,7 +199,7 @@ class Quiz {
         const card = buildCard(statusAnswer, answer[getStorage('lang')]);
         this.answer.innerHTML = card;
 
-        this.answerPalyer = new Player(
+        this.answerPalyer = await new Player(
           document.querySelector('.js-player-answer'),
         );
       }
