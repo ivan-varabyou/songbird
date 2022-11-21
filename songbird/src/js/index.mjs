@@ -69,7 +69,7 @@ import { loaderHide, loaderView } from './lib/loader.js';
     }
 
     if (page === 'catalog') {
-      resetSrorege();
+      resetSrorege('catalog');
       main.outerHTML = catalogPage;
       renderPageCatalog();
     }
