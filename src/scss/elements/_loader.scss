@@ -1,0 +1,27 @@
+.loader {
+  background: #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in;
+  opacity: 0;
+  z-index: 10;
+}
+
+.loader__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 1s infinite;
+  flex-direction: column;
+  user-select: none;
+}
+
+.loader__logo {
+  width: 75px;
+}

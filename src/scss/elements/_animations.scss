@@ -1,0 +1,35 @@
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes question {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.5) rotate(45deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes play {
+  0% {
+    background-size: cover 100%;
+  }
+  50% {
+    background-size: cover 105%;
+  }
+  100% {
+    background-size: cover 100%;
+  }
+}
